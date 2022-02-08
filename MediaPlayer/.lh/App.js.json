@@ -1,0 +1,78 @@
+{
+    "sourceFile": "App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1644328937721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1644329300918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n const App = () => {\n \n \n   return (\n-   <View>\n+   <View style={{flex: 1, backgroundColor: 'green'}}>\n \n    </View>\n   );\n };\n"
+                },
+                {
+                    "date": 1644329342618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n   ScrollView,\n   StatusBar,\n   StyleSheet,\n   Text,\n+  TouchableOpacity,\n   useColorScheme,\n   View,\n } from 'react-native';\n \n@@ -23,9 +24,11 @@\n \n \n   return (\n    <View style={{flex: 1, backgroundColor: 'green'}}>\n-\n+     <TouchableOpacity style={{padding: 20, backgroundColor: 'yellow'}}>\n+       <Text>PLAY</Text>\n+     </TouchableOpacity>\n    </View>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1644329355545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n \n \n   return (\n    <View style={{flex: 1, backgroundColor: 'green'}}>\n-     <TouchableOpacity style={{padding: 20, backgroundColor: 'yellow'}}>\n+     <TouchableOpacity style={{padding: 20, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center'}}>\n        <Text>PLAY</Text>\n      </TouchableOpacity>\n    </View>\n   );\n"
+                },
+                {
+                    "date": 1644329367717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,12 @@\n    <View style={{flex: 1, backgroundColor: 'green'}}>\n      <TouchableOpacity style={{padding: 20, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center'}}>\n        <Text>PLAY</Text>\n      </TouchableOpacity>\n+\n+     <TouchableOpacity style={{padding: 20, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center'}}>\n+       <Text>PAUSE</Text>\n+     </TouchableOpacity>\n    </View>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1644329378578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n      <TouchableOpacity style={{padding: 20, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center'}}>\n        <Text>PLAY</Text>\n      </TouchableOpacity>\n \n-     <TouchableOpacity style={{padding: 20, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center'}}>\n+     <TouchableOpacity style={{padding: 20, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'}}>\n        <Text>PAUSE</Text>\n      </TouchableOpacity>\n    </View>\n   );\n"
+                },
+                {
+                    "date": 1644329385987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n      <TouchableOpacity style={{padding: 20, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center'}}>\n        <Text>PLAY</Text>\n      </TouchableOpacity>\n \n-     <TouchableOpacity style={{padding: 20, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'}}>\n+     <TouchableOpacity style={{padding: 20, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center', marginTop: 20}}>\n        <Text>PAUSE</Text>\n      </TouchableOpacity>\n    </View>\n   );\n"
+                },
+                {
+                    "date": 1644329395832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,9 @@\n \n      <TouchableOpacity style={{padding: 20, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center', marginTop: 20}}>\n        <Text>PAUSE</Text>\n      </TouchableOpacity>\n+\n    </View>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1644329411116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,4 @@\n-/**\n- * Sample React Native App\n- * https://github.com/facebook/react-native\n- *\n- * @format\n- * @flow strict-local\n- */\n-\n import React from 'react';\n import {\n   SafeAreaView,\n   ScrollView,\n"
+                },
+                {
+                    "date": 1644329774941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,24 +9,54 @@\n   useColorScheme,\n   View,\n } from 'react-native';\n \n+import TrackPlayer, { useProgress } from 'react-native-track-player';\n \n \n const App = () => {\n \n+  const playMusic = () => {\n \n+  }\n+\n+  const pauseMusic = () => {\n+    \n+  }\n+\n+\n   return (\n-   <View style={{flex: 1, backgroundColor: 'green'}}>\n-     <TouchableOpacity style={{padding: 20, backgroundColor: 'yellow', alignItems: 'center', justifyContent: 'center'}}>\n-       <Text>PLAY</Text>\n-     </TouchableOpacity>\n+    <View style={{ flex: 1, backgroundColor: 'green' }}>\n \n-     <TouchableOpacity style={{padding: 20, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center', marginTop: 20}}>\n-       <Text>PAUSE</Text>\n-     </TouchableOpacity>\n \n-   </View>\n+\n+      <TouchableOpacity\n+        onPress={playMusic}\n+        style={{\n+          padding: 20,\n+          backgroundColor: 'yellow',\n+          alignItems: 'center',\n+          justifyContent: 'center'\n+        }}>\n+        <Text>PLAY</Text>\n+      </TouchableOpacity>\n+\n+\n+\n+      <TouchableOpacity\n+      onPress={pauseMusic}\n+        style={{\n+          padding: 20,\n+          backgroundColor: 'white',\n+          alignItems: 'center',\n+          justifyContent: 'center',\n+          marginTop: 20\n+        }}>\n+        <Text>PAUSE</Text>\n+      </TouchableOpacity>\n+\n+\n+    </View>\n   );\n };\n \n \n"
+                },
+                {
+                    "date": 1644329867802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,26 +10,37 @@\n   View,\n } from 'react-native';\n \n import TrackPlayer, { useProgress } from 'react-native-track-player';\n+const track =\n+{\n+  id: '1',\n+  url: 'https://www.chosic.com/wp-content/uploads/2021/07/The-Epic-Hero-Epic-Cinematic-Keys-of-Moon-Music.mp3',\n+  title: 'Keys of moon',\n+  artist: 'The Epic Hero',\n+  artwork: 'https://picsum.photos/id/1003/200/300',\n+  album: '',\n+  duration: 149,\n+}\n \n \n+\n+\n const App = () => {\n \n   const playMusic = () => {\n-\n+    TrackPlayer.add(track);\n+    TrackPlayer.play();\n   }\n \n   const pauseMusic = () => {\n-    \n+    TrackPlayer.pause();\n   }\n \n \n   return (\n     <View style={{ flex: 1, backgroundColor: 'green' }}>\n \n-\n-\n       <TouchableOpacity\n         onPress={playMusic}\n         style={{\n           padding: 20,\n@@ -40,11 +51,10 @@\n         <Text>PLAY</Text>\n       </TouchableOpacity>\n \n \n-\n       <TouchableOpacity\n-      onPress={pauseMusic}\n+        onPress={pauseMusic}\n         style={{\n           padding: 20,\n           backgroundColor: 'white',\n           alignItems: 'center',\n@@ -53,9 +63,8 @@\n         }}>\n         <Text>PAUSE</Text>\n       </TouchableOpacity>\n \n-\n     </View>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1644330038359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,11 @@\n   const pauseMusic = () => {\n     TrackPlayer.pause();\n   }\n \n+  const stopMusic = () => {\n+    TrackPlayer.stop();\n+  }\n \n   return (\n     <View style={{ flex: 1, backgroundColor: 'green' }}>\n \n@@ -63,8 +66,21 @@\n         }}>\n         <Text>PAUSE</Text>\n       </TouchableOpacity>\n \n+\n+      <TouchableOpacity\n+        onPress={stopMusic}\n+        style={{\n+          padding: 20,\n+          backgroundColor: 'white',\n+          alignItems: 'center',\n+          justifyContent: 'center',\n+          marginTop: 20\n+        }}>\n+        <Text>PAUSE</Text>\n+      </TouchableOpacity>\n+\n     </View>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1644330045019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,9 +76,9 @@\n           alignItems: 'center',\n           justifyContent: 'center',\n           marginTop: 20\n         }}>\n-        <Text>PAUSE</Text>\n+        <Text>STOP</Text>\n       </TouchableOpacity>\n \n     </View>\n   );\n"
+                },
+                {
+                    "date": 1644330160717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,12 @@\n   const stopMusic = () => {\n     TrackPlayer.stop();\n   }\n \n+  const moveToPosition = () => {\n+    TrackPlayer.seekTo(70);\n+  }\n+\n   return (\n     <View style={{ flex: 1, backgroundColor: 'green' }}>\n \n       <TouchableOpacity\n@@ -79,8 +83,21 @@\n         }}>\n         <Text>STOP</Text>\n       </TouchableOpacity>\n \n+\n+      <TouchableOpacity\n+        onPress={moveToPosition}\n+        style={{\n+          padding: 20,\n+          backgroundColor: 'white',\n+          alignItems: 'center',\n+          justifyContent: 'center',\n+          marginTop: 20\n+        }}>\n+        <Text>MOVE TO</Text>\n+      </TouchableOpacity>\n+\n     </View>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1644330248984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,10 @@\n \n \n const App = () => {\n \n+  const progress = useProgress();\n+\n   const playMusic = () => {\n     TrackPlayer.add(track);\n     TrackPlayer.play();\n   }\n@@ -96,8 +98,9 @@\n         }}>\n         <Text>MOVE TO</Text>\n       </TouchableOpacity>\n \n+      <Text>{JSON.stringify(progress)}</Text>\n     </View>\n   );\n };\n \n"
+                },
+                {
+                    "date": 1644330462232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n import React from 'react';\n import {\n   SafeAreaView,\n   ScrollView,\n+  Slider,\n   StatusBar,\n   StyleSheet,\n   Text,\n   TouchableOpacity,\n@@ -99,8 +100,16 @@\n         <Text>MOVE TO</Text>\n       </TouchableOpacity>\n \n       <Text>{JSON.stringify(progress)}</Text>\n+      \n+\n+      <Slider \n+      minimumValue={0} \n+      maximumValue={progress.duration} \n+      value={progress.position}\n+      thumbTintColor={'red'}\n+      />\n     </View>\n   );\n };\n \n"
+                }
+            ],
+            "date": 1644328937721,
+            "name": "Commit-0",
+            "content": "/**\n * Sample React Native App\n * https://github.com/facebook/react-native\n *\n * @format\n * @flow strict-local\n */\n\nimport React from 'react';\nimport {\n  SafeAreaView,\n  ScrollView,\n  StatusBar,\n  StyleSheet,\n  Text,\n  useColorScheme,\n  View,\n} from 'react-native';\n\n\n\nconst App = () => {\n\n\n  return (\n   <View>\n\n   </View>\n  );\n};\n\n\nexport default App;\n"
+        }
+    ]
+}
